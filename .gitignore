@@ -1,0 +1,6 @@
+emulator
+emulator-kernel
+out
+*~
+*.orig
+*.rej
