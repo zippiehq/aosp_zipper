@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <remote name="android-x86" fetch="https://git.code.sf.net/p/android-x86/" revision="refs/heads/nougat-x86" />
-    <remote name="robherring" fetch="https://github.com/robherring/" revision="master" />
+    <remote name="zipper" fetch="https://github.com/zipperglobal/" revision="master" />
     
     <remove-project name="platform/external/mesa3d" />
     <remove-project name="platform/external/llvm" />
@@ -12,5 +12,5 @@
     <project path="external/llvm" remote="android-x86" name="external_llvm"  />
     <project path="external/drm_gralloc" remote="android-x86" name="external_drm_gralloc"  />
     <project path="external/libdrm" remote="android-x86" name="external_libdrm" />
-    <project path="device/linaro/generic" remote="robherring" name="generic_device" />            
+    <project path="device/linaro/generic" remote="zipper" name="emulator_device" />            
 </manifest>
