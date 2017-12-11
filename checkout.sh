@@ -14,11 +14,6 @@ cp $ORIG/local_manifest.xml .repo/local_manifests/emulator.xml
 
 repo sync -j4 -c
 
-pushd device/linaro/generic
-git fetch robherring
-git checkout 306887c7212a8f4dcd6244bda49c1f7f1ab1275a
-popd
-
 popd
 
 git clone https://android.googlesource.com/kernel/common emulator-kernel
