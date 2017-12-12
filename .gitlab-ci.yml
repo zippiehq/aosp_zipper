@@ -1,0 +1,25 @@
+image: openjdk:8-jdk
+
+before_script:
+  - apt-get --quiet update --yes
+  - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1 git-core gnupg flex bison gperf build-essential zip bc curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
+  - export USER=$(whoami)
+  - mkdir -p $PWD/android-sdk-linux/platform-tools
+  - curl https://storage.googleapis.com/git-repo-downloads/repo > $PWD/android-sdk-linux/platform-tools/repo 
+  - chmod +x $PWD/android-sdk-linux/platform-tools/repo
+stages:
+  - build
+
+build:
+  tags: 
+    - vgrade-zipper
+  stage: build
+  script:
+    - ./checkout.sh
+    - ./build.sh
+  artifacts:
+    paths:
+    - out/emulator-kernel-4.4-x86_64-x86/arch/x86/boot/bzImage
+    - out/emulator-x86_64//emulator/target/product/linaro_x86_64/*.img
